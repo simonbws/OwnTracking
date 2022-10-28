@@ -94,6 +94,18 @@
     <Compile Include="FrmPositionList.Designer.cs">
       <DependentUpon>FrmPositionList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTask.Designer.cs">
+      <DependentUpon>FrmTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTaskList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTaskList.Designer.cs">
+      <DependentUpon>FrmTaskList.cs</DependentUpon>
+    </Compile>
     <Compile Include="General.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPositionList.resx">
       <DependentUpon>FrmPositionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTask.resx">
+      <DependentUpon>FrmTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTaskList.resx">
+      <DependentUpon>FrmTaskList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
