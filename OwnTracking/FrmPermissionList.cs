@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OwnTracking
 {
-    public partial class FrmTaskList : Form
+    public partial class FrmPermissionList : Form
     {
-        public FrmTaskList()
+        public FrmPermissionList()
         {
             InitializeComponent();
         }
@@ -22,19 +22,14 @@ namespace OwnTracking
             e.Handled = General.isNumber(e);
         }
 
+        private void txtDayAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.isNumber(e);
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void FrmTaskList_Load(object sender, EventArgs e)
-        {
-            pnlForAdmin.Hide();
-        }
-
-        private void cmbTaskState_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
     }
 }
