@@ -27,7 +27,9 @@ namespace OwnTracking
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            
+            FrmMain frmMain = new FrmMain();
+            this.Hide();
+            frmMain.ShowDialog();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
