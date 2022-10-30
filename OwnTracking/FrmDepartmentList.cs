@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace OwnTracking
 {
@@ -28,6 +30,8 @@ namespace OwnTracking
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+            lists = DepartmentBLL.GetDepartments();
+            dataGridView1.DataSource = lists;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -37,5 +41,15 @@ namespace OwnTracking
             frm.ShowDialog();
             this.Visible = true;
         }
+        List<DEPARTMENT> lists = new List<DEPARTMENT>();
+        private void FrmDepartmentList_Load(object sender, EventArgs e)
+        {
+            
+            lists = DepartmentBLL.GetDepartments();
+            dataGridView1.DataSource = lists;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].HeaderText = "Department Name";
+        }
     }
 }
+ 

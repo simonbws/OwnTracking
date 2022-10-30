@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace OwnTracking
 {
@@ -20,6 +22,23 @@ namespace OwnTracking
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (txtDepartment.Text.Trim() == "")
+            {
+                MessageBox.Show("Please write the name");
+            }
+            else
+            {
+                DEPARTMENT department = new DEPARTMENT();
+                department.DepartmentName = txtDepartment.Text;
+                BusinessLogicLayer.DepartmentBLL.AddDepartment(department);
+                MessageBox.Show("Department has been added");
+                txtDepartment.Clear();
+            }
+
         }
     }
 }
