@@ -88,6 +88,10 @@ namespace OwnTracking
             {
                 MessageBox.Show("Please provide User Number");
             }
+            else if (!EmployeeBLL.isUnique(Convert.ToInt32(txtUserNo.Text)))
+            {
+                MessageBox.Show("This user is no unique");
+            }
             else if (txtPassword.Text.Trim() == "")
             {
                 MessageBox.Show("Please provide a password");
@@ -152,6 +156,27 @@ namespace OwnTracking
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+
+        }
+        bool isUnique = false;
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            if (txtUserNo.Text.Trim() == "")
+            {
+                MessageBox.Show("Please provide User Number");
+            }
+            else
+            {
+                isUnique = EmployeeBLL.isUnique(Convert.ToInt32(txtUserNo.Text));
+                if (!isUnique)
+                {
+                    MessageBox.Show("This user is no unique");
+                }
+                else
+                {
+                    MessageBox.Show("This user number is ok!");
+                }
+            }
 
         }
     }

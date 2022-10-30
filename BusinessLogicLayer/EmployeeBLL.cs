@@ -21,7 +21,21 @@ namespace BusinessLogicLayer
             EmployeeDTO dto = new EmployeeDTO();
             dto.Departments=DepartmentDAO.GetDepartments();
             dto.Positions = PositionDAO.GetPositions();
+            dto.Employees = EmployeeDAO.GetEmployees();
             return dto;
+        }
+
+        public static bool isUnique(int v)
+        {
+            List<EMPLOYEE> list = EmployeeDAO.GetUsers(v);
+            if (list.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

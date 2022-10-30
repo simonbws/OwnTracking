@@ -11,5 +11,6 @@ namespace DataAccessLayer.DTO
     {
         public List<DEPARTMENT> Departments { get; set; }
         public List<PositionDTO> Positions { get; set; }
+        public List<EmployeePropertiesDTO> Employees { get; set; }
     }
 }

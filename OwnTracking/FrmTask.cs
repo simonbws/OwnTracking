@@ -21,5 +21,11 @@ namespace OwnTracking
         {
             this.Close();
         }
+
+        private void FrmTask_Load(object sender, EventArgs e)
+        {
+            label9.Visible = false;
+            cmbTaskState.Visible = false;
+        }
     }
 }
