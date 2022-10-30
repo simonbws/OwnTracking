@@ -209,6 +209,7 @@
             this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // txtSalary
             // 
@@ -256,6 +257,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(184, 33);
             this.cmbDepartment.TabIndex = 5;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -323,6 +325,7 @@
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmEmployee
             // 
@@ -353,6 +356,7 @@
             this.Name = "FrmEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Emloyee";
+            this.Load += new System.EventHandler(this.FrmEmployee_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
