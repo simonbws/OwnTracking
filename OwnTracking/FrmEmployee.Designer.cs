@@ -51,10 +51,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -199,6 +200,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(162, 203);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnBrowse
             // 
@@ -286,14 +288,14 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(184, 22);
             this.dateTimePicker1.TabIndex = 7;
             // 
-            // textBox1
+            // txtAddress
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(134, 452);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(381, 65);
-            this.textBox1.TabIndex = 8;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtAddress.Location = new System.Drawing.Point(134, 452);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(381, 65);
+            this.txtAddress.TabIndex = 8;
             // 
             // label10
             // 
@@ -301,9 +303,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label10.Location = new System.Drawing.Point(12, 448);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 25);
+            this.label10.Size = new System.Drawing.Size(92, 25);
             this.label10.TabIndex = 27;
-            this.label10.Text = "Name";
+            this.label10.Text = "Address";
             // 
             // btnClose
             // 
@@ -327,6 +329,10 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -334,7 +340,7 @@
             this.ClientSize = new System.Drawing.Size(788, 624);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label9);
@@ -390,9 +396,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

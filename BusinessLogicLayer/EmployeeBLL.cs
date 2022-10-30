@@ -5,11 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer.DAO;
+using DataAccessLayer;
 
 namespace BusinessLogicLayer
 {
     public class EmployeeBLL
     {
+        public static void AddEmployee(EMPLOYEE employee)
+        {
+            EmployeeDAO.AddEmployee(employee);
+        }
+
         public static EmployeeDTO GetAll()
         {
             EmployeeDTO dto = new EmployeeDTO();

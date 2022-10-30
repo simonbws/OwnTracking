@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinessLogicLayer;
 using DataAccessLayer;
 using DataAccessLayer.DTO;
+using System.IO;
 
 namespace OwnTracking
 {
@@ -68,10 +69,17 @@ namespace OwnTracking
             } 
             
         }
+        string fileName = "";
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Load(openFileDialog1.FileName);
+                txtImagePath.Text=openFileDialog1.FileName;
+                string UniquePath = Guid.NewGuid().ToString();
+                fileName += UniquePath + openFileDialog1.SafeFileName;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -115,8 +123,35 @@ namespace OwnTracking
                 employee.Salary = Convert.ToInt32(txtSalary.Text);
                 employee.DepartmentID = Convert.ToInt32(cmbDepartment.SelectedValue);
                 employee.PositionID = Convert.ToInt32(cmbPosition.SelectedValue);
+                employee.Address = txtAddress.Text;
+                employee.Birthday = dateTimePicker1.Value;
+                employee.ImagePath = fileName;
+                EmployeeBLL.AddEmployee(employee);
+                File.Copy(txtImagePath.Text, @"images\\" + fileName);
+                MessageBox.Show("Employee has been added");
+
+                txtUserNo.Clear();
+                txtPassword.Clear();
+                chAdmin.Checked = false;
+                txtName.Clear();
+                txtSurname.Clear();
+                txtSalary.Clear();
+                txtAddress.Clear();
+                cmbDepartment.SelectedIndex = -1;
+                cmbPosition.DataSource = dto.Positions;
+                cmbPosition.SelectedIndex = -1;
+                txtImagePath.Clear();
+                pictureBox1.Image = null;
+                comfobull = false;
+                comfobull = true;
+                dateTimePicker1.Value = DateTime.Today;
                 
             }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
         }
     }
