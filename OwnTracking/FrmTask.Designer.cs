@@ -37,9 +37,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtUserNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbTaskState = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 123);
@@ -74,6 +75,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(270, 327);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // panel2
             // 
@@ -95,6 +97,7 @@
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(127, 33);
             this.cmbPosition.TabIndex = 1;
+            this.cmbPosition.SelectedIndexChanged += new System.EventHandler(this.cmbPosition_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -114,6 +117,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(127, 33);
             this.cmbDepartment.TabIndex = 0;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -145,15 +149,15 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Surname";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(165, 60);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(148, 22);
-            this.textBox1.TabIndex = 8;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtName.Location = new System.Drawing.Point(165, 60);
+            this.txtName.Multiline = true;
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(148, 22);
+            this.txtName.TabIndex = 8;
             // 
             // label3
             // 
@@ -165,15 +169,15 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Name";
             // 
-            // textBox2
+            // txtUserNo
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2.Location = new System.Drawing.Point(165, 23);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(148, 22);
-            this.textBox2.TabIndex = 7;
+            this.txtUserNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtUserNo.Location = new System.Drawing.Point(165, 23);
+            this.txtUserNo.Multiline = true;
+            this.txtUserNo.Name = "txtUserNo";
+            this.txtUserNo.ReadOnly = true;
+            this.txtUserNo.Size = new System.Drawing.Size(148, 22);
+            this.txtUserNo.TabIndex = 7;
             // 
             // label4
             // 
@@ -262,6 +266,7 @@
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmTask
             // 
@@ -278,9 +283,9 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtUserNo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Name = "FrmTask";
@@ -306,9 +311,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtUserNo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbTaskState;
         private System.Windows.Forms.Label label9;
