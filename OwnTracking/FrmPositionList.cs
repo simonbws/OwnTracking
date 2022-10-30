@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using DataAccessLayer.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +43,21 @@ namespace OwnTracking
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+            FillGrid();
+        }
+        List<PositionDTO> posList = new List<PositionDTO>();
+        void FillGrid()
+        {
+            posList = PositionBusinessLL.GetPositions();
+            dataGridView1.DataSource = posList;
+        }
+        private void FrmPositionList_Load(object sender, EventArgs e)
+        {
+            FillGrid();
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[0].HeaderText = "Department Name";
+            dataGridView1.Columns[2].HeaderText = "Position Name";
         }
     }
 }
