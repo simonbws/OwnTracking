@@ -49,7 +49,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUserNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -224,7 +224,7 @@
             this.pnlForAdmin.Controls.Add(this.label6);
             this.pnlForAdmin.Controls.Add(this.txtSurname);
             this.pnlForAdmin.Controls.Add(this.label5);
-            this.pnlForAdmin.Controls.Add(this.textBox1);
+            this.pnlForAdmin.Controls.Add(this.txtName);
             this.pnlForAdmin.Controls.Add(this.label3);
             this.pnlForAdmin.Controls.Add(this.txtUserNo);
             this.pnlForAdmin.Controls.Add(this.label4);
@@ -291,14 +291,14 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "Surname";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(173, 38);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 25);
-            this.textBox1.TabIndex = 1;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtName.Location = new System.Drawing.Point(173, 38);
+            this.txtName.Multiline = true;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(153, 25);
+            this.txtName.TabIndex = 1;
             // 
             // label3
             // 
@@ -460,7 +460,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUserNo;
         private System.Windows.Forms.Label label4;

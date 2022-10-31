@@ -38,7 +38,7 @@
             this.rbMore = new System.Windows.Forms.RadioButton();
             this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSalary = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUserNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.cmbMonth);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.txtYear);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.txtSalary);
             this.panel3.Controls.Add(this.label1);
@@ -177,14 +177,14 @@
             this.label8.TabIndex = 32;
             this.label8.Text = "Month";
             // 
-            // textBox3
+            // txtYear
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox3.Location = new System.Drawing.Point(173, 61);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 22);
-            this.textBox3.TabIndex = 1;
+            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtYear.Location = new System.Drawing.Point(173, 61);
+            this.txtYear.Multiline = true;
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(148, 22);
+            this.txtYear.TabIndex = 1;
             // 
             // label2
             // 
@@ -223,7 +223,7 @@
             this.pnlForAdmin.Controls.Add(this.label6);
             this.pnlForAdmin.Controls.Add(this.txtSurname);
             this.pnlForAdmin.Controls.Add(this.label5);
-            this.pnlForAdmin.Controls.Add(this.textBox1);
+            this.pnlForAdmin.Controls.Add(this.txtName);
             this.pnlForAdmin.Controls.Add(this.label3);
             this.pnlForAdmin.Controls.Add(this.txtUserNo);
             this.pnlForAdmin.Controls.Add(this.label4);
@@ -290,14 +290,14 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "Surname";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(165, 60);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 27);
-            this.textBox1.TabIndex = 1;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtName.Location = new System.Drawing.Point(165, 60);
+            this.txtName.Multiline = true;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(153, 27);
+            this.txtName.TabIndex = 1;
             // 
             // label3
             // 
@@ -435,7 +435,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUserNo;
         private System.Windows.Forms.Label label4;
@@ -445,7 +445,7 @@
         private System.Windows.Forms.RadioButton rbMore;
         private System.Windows.Forms.ComboBox cmbMonth;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSalary;
         private System.Windows.Forms.Label label1;

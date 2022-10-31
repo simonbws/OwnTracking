@@ -51,7 +51,7 @@ namespace OwnTracking
             dto = EmployeeBLL.GetAll();
             cmbDepartment.DataSource = dto.Departments;
             cmbDepartment.DisplayMember = "Department Name";
-            cmbDepartment.ValueMember = "id";
+            cmbDepartment.ValueMember = "ID";
             cmbPosition.DataSource = dto.Positions;
             cmbPosition.DisplayMember = "Position Name";
             cmbPosition.ValueMember = "id";
@@ -108,11 +108,11 @@ namespace OwnTracking
             {
                 MessageBox.Show("Please provide a salary");
             }
-            else if (cmbDepartment.Text.Trim() == "")
+            else if (cmbDepartment.SelectedIndex == -1)
             {
                 MessageBox.Show("Please provide a department");
             }
-            else if (cmbPosition.Text.Trim() == "")
+            else if (cmbPosition.SelectedIndex == -1)
             {
                 MessageBox.Show("Please provide a position");
             }
@@ -144,9 +144,9 @@ namespace OwnTracking
                 cmbDepartment.SelectedIndex = -1;
                 cmbPosition.DataSource = dto.Positions;
                 cmbPosition.SelectedIndex = -1;
+                comfobull = false;
                 txtImagePath.Clear();
                 pictureBox1.Image = null;
-                comfobull = false;
                 comfobull = true;
                 dateTimePicker1.Value = DateTime.Today;
                 
