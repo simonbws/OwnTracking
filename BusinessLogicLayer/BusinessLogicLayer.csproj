@@ -45,6 +45,7 @@
     <Compile Include="EmployeeBLL.cs" />
     <Compile Include="PositionBusinessLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalaryBLL.cs" />
     <Compile Include="TaskBLL.cs" />
   </ItemGroup>
   <ItemGroup>
