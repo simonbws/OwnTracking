@@ -103,6 +103,7 @@
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSearch
             // 
@@ -113,17 +114,19 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbEquals);
             this.groupBox1.Controls.Add(this.rbLess);
             this.groupBox1.Controls.Add(this.rbMore);
-            this.groupBox1.Location = new System.Drawing.Point(341, 24);
+            this.groupBox1.Location = new System.Drawing.Point(342, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(169, 100);
+            this.groupBox1.Size = new System.Drawing.Size(168, 100);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // rbEquals
             // 
@@ -260,6 +263,7 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(153, 33);
             this.cmbDepartment.TabIndex = 3;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -386,12 +390,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 250);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 242);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(895, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(895, 209);
             this.dataGridView1.TabIndex = 2;
             // 
             // FrmSalaryList
@@ -405,6 +408,7 @@
             this.Name = "FrmSalaryList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salary List";
+            this.Load += new System.EventHandler(this.FrmSalaryList_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

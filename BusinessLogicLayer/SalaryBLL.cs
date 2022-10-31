@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DataAccessLayer.DAO;
 using DataAccessLayer;
 
+
 namespace BusinessLogicLayer
 {
     public class SalaryBLL
@@ -23,6 +24,7 @@ namespace BusinessLogicLayer
             dto.Departments = DepartmentDAO.GetDepartments();
             dto.Positions = PositionDAO.GetPositions();
             dto.Months = SalaryDAO.GetMonths();
+            dto.Salaries = SalaryDAO.GetSalaries();
             return dto;
 
         }

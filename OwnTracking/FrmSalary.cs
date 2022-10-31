@@ -49,23 +49,18 @@ namespace OwnTracking
             cmbDepartment.DataSource = dto.Departments;
             cmbDepartment.DisplayMember = "DepartmentName";
             cmbDepartment.ValueMember = "ID";
+            if (dto.Departments.Count > 0)   
+                comfobull = true;
             cmbPosition.DataSource = dto.Positions;
             cmbPosition.DisplayMember = "PositionName";
             cmbPosition.ValueMember = "ID";
             cmbDepartment.SelectedIndex = -1;
             cmbPosition.SelectedIndex = -1;
-            
-            if (dto.Departments.Count > 0)
-            {
-                comfobull = true;
-                cmbMonth.DataSource = dto.Months;
-                cmbMonth.DisplayMember = "MonthName";
-                cmbMonth.ValueMember = "ID";
-                cmbMonth.SelectedIndex = -1;
-               
-            }
-            
-            
+            cmbMonth.DataSource = dto.Months;
+            cmbMonth.DisplayMember = "MonthName";
+            cmbMonth.ValueMember = "ID";
+            cmbMonth.SelectedIndex = -1;
+
         }
         SALARY2 salary = new SALARY2();
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
