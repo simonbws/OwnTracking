@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace OwnTracking
 {
@@ -27,14 +29,41 @@ namespace OwnTracking
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            FrmMain frmMain = new FrmMain();
-            this.Hide();
-            frmMain.ShowDialog();
+            if (txtUserNo.Text.Trim() == "" || txtPassword.Text.Trim() == "")
+            {
+                MessageBox.Show("Please provide User Number or password");
+            }
+            else
+            {
+                List<EMPLOYEE> employeeList = EmployeeBLL.GetEmployee(Convert.ToInt32(txtUserNo.Text), txtPassword.Text);
+                if (employeeList.Count == 0)
+                {
+                    MessageBox.Show("User or password is incorrect.");
+                }
+                else
+                {
+                    EMPLOYEE employee = new EMPLOYEE();
+                    employee = employeeList.First();
+                    //we need to fill properties from static class with list
+                    UserStaticClass.EmployeeID = employee.ID;
+                    UserStaticClass.UserNumber = employee.UserNumber;
+                    UserStaticClass.isAdmin = employee.isAdmin;
+                    //we redirect program to main form
+                    FrmMain frmMain = new FrmMain();
+                    frmMain.Hide();
+                    frmMain.ShowDialog();
+                }
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
