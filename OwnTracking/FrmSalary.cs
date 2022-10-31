@@ -31,6 +31,7 @@ namespace OwnTracking
         {
             dto = SalaryBLL.GetAll();
             dataGridView1.DataSource = dto.Employees;
+            dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].HeaderText = "User Number";
             dataGridView1.Columns[2].HeaderText = "Name";
             dataGridView1.Columns[3].HeaderText = "Surname";
@@ -48,13 +49,18 @@ namespace OwnTracking
             cmbDepartment.DataSource = dto.Departments;
             cmbDepartment.DisplayMember = "DepartmentName";
             cmbDepartment.ValueMember = "ID";
+            cmbPosition.DataSource = dto.Positions;
+            cmbPosition.DisplayMember = "PositionName";
+            cmbPosition.ValueMember = "ID";
+            cmbDepartment.SelectedIndex = -1;
+            cmbPosition.SelectedIndex = -1;
             
             if (dto.Departments.Count > 0)
             {
                 comfobull = true;
                 cmbMonth.DataSource = dto.Months;
                 cmbMonth.DisplayMember = "MonthName";
-                cmbMonth.ValueMember = "id";
+                cmbMonth.ValueMember = "ID";
                 cmbMonth.SelectedIndex = -1;
                
             }
@@ -73,27 +79,48 @@ namespace OwnTracking
             txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtSurname.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             txtYear.Text = DateTime.Today.Year.ToString();
-            txtYear.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-            salary.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            txtSalary.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtYear.Text.Trim() == "")
+            {
                 MessageBox.Show("Please provide the year");
+            }
+                
             else if (cmbMonth.SelectedIndex == -1)
+            {
                 MessageBox.Show("Please provide a month");
+            }
             else if (txtSalary.Text.Trim() == "")
+            {
                 MessageBox.Show("Please provide a salary");
-            else if (txtUserNo.Text == "") 
+            }
+            else if (txtUserNo.Text == "")
+            {
                 MessageBox.Show("Please select an employee from table");
+            }
             else
             {
                 salary.Year = Convert.ToInt32(txtYear.Text);
                 salary.MonthID = Convert.ToInt32(cmbMonth.SelectedValue);
                 salary.Amount = Convert.ToInt32(txtSalary.Text);
                 SalaryBLL.AddSalary(salary);
+                MessageBox.Show("Salary was added");
+                cmbMonth.SelectedIndex = -1;
             }
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

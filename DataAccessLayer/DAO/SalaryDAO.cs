@@ -12,7 +12,8 @@ namespace DataAccessLayer.DAO
         {
             try
             {
-                
+               db.SALARY2s.InsertOnSubmit(salary);
+                db.SubmitChanges();
             }
             catch (Exception e)
             {
