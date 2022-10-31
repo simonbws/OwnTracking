@@ -59,6 +59,7 @@ namespace OwnTracking
             cmbPosition.SelectedIndex = -1;
             comfobull = true;
             cmbTaskState.DataSource = dto.TaskStates;
+            cmbTaskState.DisplayMember = "StateName";
             cmbTaskState.ValueMember = "ID";
             cmbTaskState.SelectedIndex = -1;
         }
