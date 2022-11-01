@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer;
 using DataAccessLayer.DAO;
+using DataAccessLayer.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,26 @@ namespace BusinessLogicLayer
         public static void AddPermission(PERMISSION permission)
         {
             PermissionDAO.AddPermission(permission);
+        }
+
+        public static PermissionDTO GetAll()
+        {
+            PermissionDTO dto = new PermissionDTO();
+            dto.Departments = DepartmentDAO.GetDepartments();
+            dto.Positions = PositionDAO.GetPositions();
+            dto.States = PermissionDAO.GetStates();
+            dto.Permissions = PermissionDAO.GetPermissions();
+            return dto;
+        }
+
+        public static void UpdatePermission(PERMISSION permission)
+        {
+            PermissionDAO.UpdatePermission(permission);
+        }
+
+        public static void UpdatePermission(int permissionID, int accepted)
+        {
+            PermissionDAO.UpdatePermission(permissionID, accepted);
         }
     }
 }

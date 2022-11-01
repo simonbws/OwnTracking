@@ -51,6 +51,9 @@
     <Compile Include="DAO\TaskDAO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="DTO\EmployeePropertiesDTO.cs" />
+    <Compile Include="DTO\PermissionAdminStateStatic.cs" />
+    <Compile Include="DTO\PermissionDetailDTO.cs" />
+    <Compile Include="DTO\PermissionDTO.cs" />
     <Compile Include="DTO\PositionDTO.cs" />
     <Compile Include="DTO\SalaryDTO.cs" />
     <Compile Include="DTO\SalaryPropertiesDTO.cs" />
