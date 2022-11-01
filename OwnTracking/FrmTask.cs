@@ -26,6 +26,8 @@ namespace OwnTracking
         }
         TaskDTO dto = new TaskDTO();
         private bool comfobull= false;
+        public bool isUpdate = false;
+        public TaskPropertiesDTO properties = new TaskPropertiesDTO();
 
         private void FrmTask_Load(object sender, EventArgs e)
         {
@@ -54,14 +56,28 @@ namespace OwnTracking
             cmbDepartment.ValueMember = "ID";
             cmbPosition.DataSource = dto.Positions;
             cmbPosition.DisplayMember = "PositionName";
-            cmbPosition.ValueMember = "id";
+            cmbPosition.ValueMember = "ID";
             cmbDepartment.SelectedIndex = -1;
             cmbPosition.SelectedIndex = -1;
             comfobull = true;
-            cmbTaskState.DataSource = dto.TaskStates;
-            cmbTaskState.DisplayMember = "StateName";
-            cmbTaskState.ValueMember = "ID";
-            cmbTaskState.SelectedIndex = -1;
+            
+
+            if (isUpdate)
+            {
+                label9.Visible = true;
+                cmbTaskState.Visible = true;
+                txtName.Text = properties.Name;
+                txtUserNo.Text = properties.UserNumber.ToString();
+                txtSurname.Text = properties.Surname;
+                txtTitle.Text = properties.Title;
+                txtContent.Text = properties.Content;
+                cmbTaskState.DataSource = dto.TaskStates;
+                cmbTaskState.DisplayMember = "StateName";
+                cmbTaskState.ValueMember = "ID";
+                cmbTaskState.SelectedValue = properties.taskStateID;
+
+
+            }
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,17 +133,46 @@ namespace OwnTracking
             //set the value to our class
             else
             {
-                task.TaskTitle=txtTitle.Text;
-                task.TaskContent=txtContent.Text;
-                task.TaskStartDate = DateTime.Today;
-                task.TaskState = 1;
-                TaskBLL.AddTask(task);
-                //after save task to db give a message
-                MessageBox.Show("Task has been added");
-                //now clear the data
-                txtTitle.Clear();
-                txtContent.Clear();
-                task = new TASK();
+                if (!isUpdate)
+                {
+                    task.TaskTitle = txtTitle.Text;
+                    task.TaskContent = txtContent.Text;
+                    task.TaskStartDate = DateTime.Today;
+                    task.TaskState = 1;
+                    TaskBLL.AddTask(task);
+                    //after save task to db give a message
+                    MessageBox.Show("Task has been added");
+                    //now clear the data
+                    txtTitle.Clear();
+                    txtContent.Clear();
+                    task = new TASK();
+                }
+                else if (isUpdate)
+                {
+                    DialogResult res = MessageBox.Show("Do you want to update?", "Warning", MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes)
+                    {
+                        TASK update = new TASK();
+                        update.ID = properties.TaskID;
+                        if (Convert.ToInt32(txtUserNo.Text) != properties.UserNumber)
+                        {
+                            update.EmployeeID = task.EmployeeID;
+                        }
+                        else
+                        {
+                            update.EmployeeID = properties.EmployeeID;
+                            update.TaskContent = txtContent.Text;
+                            update.TaskTitle = txtTitle.Text;
+                            update.TaskState = Convert.ToInt32(cmbTaskState.SelectedValue);
+                            TaskBLL.UpdateTask(update);
+                            MessageBox.Show("Update has been done successfully");
+                            this.Close();
+
+                        }
+                    }
+                }
+
+
             }
             
 

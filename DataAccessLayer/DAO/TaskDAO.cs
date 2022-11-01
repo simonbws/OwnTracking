@@ -76,5 +76,23 @@ namespace DataAccessLayer.DAO
         {
             return db.TASKSTATEs.ToList();
         }
+
+        public static void UpdateTask(TASK task)
+        {
+            try
+            {
+                TASK t = db.TASKs.First(x=>x.ID == task.ID);
+                t.TaskTitle = task.TaskTitle;
+                t.TaskContent = task.TaskContent;
+                t.TaskState = task.TaskState;
+                t.EmployeeID = task.EmployeeID;
+                db.SubmitChanges();
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
