@@ -64,6 +64,7 @@ namespace DataAccessLayer.DAO
                 dto.isAdmin = item.isAdmin;
                 dto.BirthDay = item.BirthDay;
                 dto.Address = item.Address;
+                dto.ImagePath = item.ImagePath;
                 employeeList.Add(dto); // we added this dto to employee list
             }
 
@@ -101,6 +102,30 @@ namespace DataAccessLayer.DAO
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public static void UpdateEmployee(EMPLOYEE employee)
+        {
+            try
+            {
+                EMPLOYEE e = db.EMPLOYEEs.First(x=>x.ID == employee.ID);
+                e.UserNumber = employee.UserNumber;
+                e.Name = employee.Name;
+                e.Surname = employee.Surname;
+                e.Password = employee.Password;
+                e.isAdmin = employee.isAdmin;
+                e.Birthday = employee.Birthday;
+                e.Address = employee.Address;
+                e.DepartmentID = employee.DepartmentID;
+                e.PositionID = employee.PositionID;
+                e.Salary = employee.Salary;
+                db.SubmitChanges();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

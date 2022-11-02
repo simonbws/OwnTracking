@@ -31,20 +31,37 @@ namespace OwnTracking
             this.Hide();
             frm.ShowDialog();
             this.Visible = true;
+            SelectAllData();
+            ClearAllFilters();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmEmployee frm = new FrmEmployee();
-            this.Hide();
-            frm.ShowDialog();
-            this.Visible = true;
+            if (properties.EmployeeID == 0)
+            {
+                MessageBox.Show("Please provide an employee");
+            }
+            else
+            {
+                FrmEmployee frm = new FrmEmployee();
+                frm.isUpdate = true;
+                frm.properties = properties;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                SelectAllData();
+                ClearAllFilters();
+
+            }
+            
+            
         }
         EmployeeDTO dto = new EmployeeDTO();
         private bool comfobull = false;
-
-        private void FrmEmployeeList_Load(object sender, EventArgs e)
+        EmployeePropertiesDTO properties = new EmployeePropertiesDTO();
+        void SelectAllData()
         {
+            
             dto = EmployeeBLL.GetAll();
             dataGridView1.DataSource = dto.Employees;
             dataGridView1.Columns[0].Visible = false;
@@ -72,6 +89,10 @@ namespace OwnTracking
             cmbPosition.SelectedIndex = -1;
             comfobull = true;
         }
+        private void FrmEmployeeList_Load(object sender, EventArgs e)
+        {
+            SelectAllData();
+        }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,12 +105,17 @@ namespace OwnTracking
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            ClearAllFilters();
+        }
+
+        private void ClearAllFilters()
+        {
             txtUserNo.Clear();
             txtName.Clear();
             txtSurname.Clear();
-            comfobull=false;
+            comfobull = false;
             cmbDepartment.SelectedIndex = -1;
-            cmbPosition.DataSource=dto.Positions;
+            cmbPosition.DataSource = dto.Positions;
             cmbPosition.SelectedIndex = -1;
             comfobull = true;
             dataGridView1.DataSource = dto.Employees;
@@ -120,6 +146,23 @@ namespace OwnTracking
             }
             //now we have to give this list to the data grid
             dataGridView1.DataSource = list;
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            properties.Name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            properties.Surname = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            properties.Password = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+            properties.ImagePath = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+            properties.Address = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
+            properties.isAdmin = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells[9].Value);
+            properties.BirthDay = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[13].Value);
+            properties.UserNumber = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            properties.DepartmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+            properties.PositionID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
+            properties.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            properties.Salary = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
+            
         }
     }
 }
