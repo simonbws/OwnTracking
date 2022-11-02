@@ -88,5 +88,20 @@ namespace DataAccessLayer.DAO
         {
             return db.EMPLOYEEs.Where(x => x.UserNumber == v).ToList();
         }
+
+        public static void UpdateEmployee(int employeeID, int amount)
+        {
+            try
+            {
+                EMPLOYEE empl = db.EMPLOYEEs.First(x => x.ID == employeeID); //select employee with empl id
+                //set salary
+                empl.Salary = amount;
+                db.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

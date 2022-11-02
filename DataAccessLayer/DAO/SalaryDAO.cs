@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,6 +68,22 @@ namespace DataAccessLayer.DAO
 
             }
             return salaryList;
+        }
+
+        public static void UpdateSalary(SALARY2 salary)
+        {
+            try
+            {
+                SALARY2 slr = db.SALARY2s.First(x => x.ID == salary.ID);
+                slr.Amount = salary.Amount;
+                slr.Year = salary.Year;
+                slr.MonthID = salary.MonthID;
+                db.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

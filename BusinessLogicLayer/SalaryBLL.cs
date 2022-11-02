@@ -12,9 +12,13 @@ namespace BusinessLogicLayer
 {
     public class SalaryBLL
     {
-        public static void AddSalary(SALARY2 salary)
+        public static void AddSalary(SALARY2 salary, bool isSalaryBiggerThanOld)
         {
             SalaryDAO.AddSalary(salary);
+            if (isSalaryBiggerThanOld)
+            {
+                EmployeeDAO.UpdateEmployee(salary.EmployeeID, salary.Amount);
+            }
         }
 
         public static SalaryDTO GetAll()
@@ -27,6 +31,15 @@ namespace BusinessLogicLayer
             dto.Salaries = SalaryDAO.GetSalaries();
             return dto;
 
+        }
+
+        public static void UpdateSalary(SALARY2 salary, bool isSalaryBiggerThanOld)
+        {
+            SalaryDAO.UpdateSalary(salary);
+            if (isSalaryBiggerThanOld)
+            {
+                EmployeeDAO.UpdateEmployee(salary.EmployeeID, salary.Amount);
+            }
         }
     }
 }
