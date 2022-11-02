@@ -25,5 +25,20 @@ namespace DataAccessLayer.DAO
         {
             return db.DEPARTMENTs.ToList();
         }
+
+        public static void UpdateDepartment(DEPARTMENT department)
+        {
+            try
+            {
+                DEPARTMENT dep = db.DEPARTMENTs.First(x => x.ID == department.ID);
+                //set name
+                dep.DepartmentName = department.DepartmentName;
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
