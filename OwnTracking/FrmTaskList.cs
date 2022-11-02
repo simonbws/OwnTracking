@@ -200,5 +200,17 @@ namespace OwnTracking
             properties.TaskStartDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
             properties.TaskDeliveryDate = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("DO you want to delete this task?", "Warning", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                TaskBLL.DeleteTask(properties.TaskID);
+                MessageBox.Show("Task has been removed");
+                FillFieldByAllData();
+                CleanFilters();
+            }
+        }
     }
 }

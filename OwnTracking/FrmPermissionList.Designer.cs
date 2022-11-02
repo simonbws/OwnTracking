@@ -30,7 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.cmbState = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtDayAmount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -43,9 +45,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlForAdmin = new System.Windows.Forms.Panel();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbState = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,6 +101,16 @@
             this.panel3.Size = new System.Drawing.Size(759, 172);
             this.panel3.TabIndex = 1;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(6, 139);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 25);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "State";
+            // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -111,6 +121,15 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // cmbState
+            // 
+            this.cmbState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbState.FormattingEnabled = true;
+            this.cmbState.Location = new System.Drawing.Point(175, 136);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Size = new System.Drawing.Size(172, 33);
+            this.cmbState.TabIndex = 3;
             // 
             // btnSearch
             // 
@@ -241,6 +260,15 @@
             this.pnlForAdmin.Size = new System.Drawing.Size(340, 172);
             this.pnlForAdmin.TabIndex = 0;
             // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(173, 105);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(153, 33);
+            this.cmbDepartment.TabIndex = 27;
+            // 
             // cmbPosition
             // 
             this.cmbPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -259,15 +287,6 @@
             this.label7.Size = new System.Drawing.Size(89, 25);
             this.label7.TabIndex = 26;
             this.label7.Text = "Position";
-            // 
-            // cmbState
-            // 
-            this.cmbState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbState.FormattingEnabled = true;
-            this.cmbState.Location = new System.Drawing.Point(175, 136);
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Size = new System.Drawing.Size(172, 33);
-            this.cmbState.TabIndex = 3;
             // 
             // label6
             // 
@@ -393,6 +412,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -421,31 +441,13 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 178);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1099, 249);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(6, 139);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 25);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "State";
-            // 
-            // cmbDepartment
-            // 
-            this.cmbDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(173, 105);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(153, 33);
-            this.cmbDepartment.TabIndex = 27;
             // 
             // FrmPermissionList
             // 

@@ -102,5 +102,19 @@ namespace DataAccessLayer.DAO
                 throw e;
             }
         }
+
+        public static void DeletePermission(int permissionID)
+        {
+            try
+            {
+                PERMISSION p = db.PERMISSIONs.First(x => x.ID == permissionID);
+                db.PERMISSIONs.DeleteOnSubmit(p);
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

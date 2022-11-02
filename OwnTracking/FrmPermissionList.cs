@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DataAccessLayer.DTO;
 using DataAccessLayer;
 using BusinessLogicLayer;
+using System.Security.Permissions;
 
 namespace OwnTracking
 {
@@ -206,6 +207,27 @@ namespace OwnTracking
             MessageBox.Show("It has been rejected!");
             SelectAllData();
             CleanFilters();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Do you want to delete this permission?", "Warning", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                if (properties.State == PermissionAdminStateStatic.Accepted || properties.State == PermissionAdminStateStatic.Unaccepted)
+                {
+                    MessageBox.Show("You cannot delete accepted or unaccepted permissions");
+                }
+                else
+                {
+                    PermissionBLL.DeletePermission(properties.PermissionID);
+                    //message after delete
+                    MessageBox.Show("Permission was deleted");
+                    //we have to refresh
+                    SelectAllData();
+                    CleanFilters();
+                }
+            }
         }
     }
 }

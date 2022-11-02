@@ -22,6 +22,20 @@ namespace DataAccessLayer.DAO
             }
         }
 
+        public static void DeleteTask(int taskID)
+        {
+            try
+            {
+                TASK t = db.TASKs.First(x=>x.ID == taskID);
+                db.TASKs.DeleteOnSubmit(t);
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static List<TaskPropertiesDTO> GetTasks()
         {
             List<TaskPropertiesDTO> taskList = new List<TaskPropertiesDTO>();
