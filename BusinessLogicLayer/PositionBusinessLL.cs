@@ -20,5 +20,14 @@ namespace BusinessLogicLayer
         {
             return PositionDAO.GetPositions();
         }
+
+        public static void UpdatePosition(POSITION position, bool isChangeOrNot)
+        {
+            PositionDAO.UpdatePosition(position);
+            if (isChangeOrNot)
+            {
+                EmployeeDAO.UpdateEmployee(position);
+            }
+        }
     }
 }

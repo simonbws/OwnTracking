@@ -128,5 +128,16 @@ namespace DataAccessLayer.DAO
                 throw ex;
             }
         }
+
+        public static void UpdateEmployee(POSITION position)
+        {
+            List<EMPLOYEE> list = db.EMPLOYEEs.Where(x =>x.PositionID == position.ID).ToList();
+            foreach (var item in list)
+            {
+                item.DepartmentID = position.DepartmentID;
+            }
+
+            db.SubmitChanges();
+        }
     }
 }

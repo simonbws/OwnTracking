@@ -9,5 +9,6 @@ namespace DataAccessLayer.DTO
     public class PositionDTO:POSITION
     {
         public string DepartmentName { get; set; }
+        public int DepartmentToChangeID { get; set; }
     }
 }

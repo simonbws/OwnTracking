@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.DTO;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,21 @@ namespace DataAccessLayer.DAO
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public static void UpdatePosition(POSITION position)
+        {
+            try
+            {
+                POSITION p = db.POSITIONs.First(x => x.ID == position.ID);
+                p.PositionName = position.PositionName;
+                p.DepartmentID = position.DepartmentID;
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

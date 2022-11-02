@@ -31,10 +31,23 @@ namespace OwnTracking
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmPosition frm = new FrmPosition();
-            this.Hide();
-            frm.ShowDialog();
-            this.Visible = true;
+            if (properties.ID == 0)
+            {
+                MessageBox.Show("Please provide a position");
+            }
+            else
+            {
+                //create instance
+                FrmPosition frm= new FrmPosition();
+                //set update and dto
+                frm.isUpdate = true;
+                frm.properties = properties;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                //after close we refresh form
+                FillGrid();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -51,13 +64,24 @@ namespace OwnTracking
             posList = PositionBusinessLL.GetPositions();
             dataGridView1.DataSource = posList;
         }
+        PositionDTO properties = new PositionDTO();
         private void FrmPositionList_Load(object sender, EventArgs e)
         {
             FillGrid();
             dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[0].HeaderText = "Department Name";
-            dataGridView1.Columns[2].HeaderText = "Position Name";
+            dataGridView1.Columns[3].HeaderText = "Position Name";
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            properties.PositionName = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            properties.ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+            properties.DepartmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+            properties.DepartmentToChangeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+            
         }
     }
 }
