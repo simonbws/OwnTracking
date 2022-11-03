@@ -1,0 +1,7 @@
+# Desktop UI Management Company App written object-oriented in C# according to N-Tier Architecture With CRUD functionality using SOLID patterns.
+It has functions such as: 
+adding employees,
+deleting them,
+updating their attributes,
+assigning them to departments,their position,
+tasks to be performed and their time. It also has authorization on administrator-user.
