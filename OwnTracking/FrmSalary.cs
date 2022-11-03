@@ -31,7 +31,7 @@ namespace OwnTracking
 
         private void FrmSalary_Load(object sender, EventArgs e)
         {
-            dto = SalaryBLL.GetAll();
+           dto = SalaryBLL.GetAll();
            if (!isUpdated)
             {
                 dataGridView1.DataSource = dto.Employees;
@@ -92,8 +92,9 @@ namespace OwnTracking
             txtUserNo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtSurname.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtYear.Text = DateTime.Today.Year.ToString();
             txtSalary.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+            txtYear.Text = DateTime.Today.Year.ToString();
+            salary.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             previousSalary = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
            
         }
@@ -164,12 +165,30 @@ namespace OwnTracking
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comfobull)
+            {
+                cmbPosition.DataSource = dto.Positions.Where(x => x.DepartmentID ==
+                Convert.ToInt32(cmbDepartment.SelectedValue)).ToList();
+                List<EmployeePropertiesDTO> list = dto.Employees;
+                dataGridView1.DataSource = list.Where(x => x.DepartmentID ==
+                  Convert.ToInt32(cmbDepartment.SelectedValue)).ToList();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmbPosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comfobull)
+            {
+
+                List<EmployeePropertiesDTO> list = dto.Employees;
+                dataGridView1.DataSource = list.Where(x => x.PositionID ==
+                  Convert.ToInt32(cmbPosition.SelectedValue)).ToList();
+            }
         }
     }
 }

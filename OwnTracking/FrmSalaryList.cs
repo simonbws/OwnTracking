@@ -47,7 +47,7 @@ namespace OwnTracking
                 frm.isUpdated = true;
                 frm.properties = properties;
                 this.Hide();
-                //and refresh page
+                frm.ShowDialog();
                 this.Visible = true;
                 SelectAllData();
                 CleanButtonFilter();
@@ -78,6 +78,7 @@ namespace OwnTracking
             cmbMonth.DisplayMember = "MonthName";
             cmbMonth.ValueMember = "ID";
             cmbMonth.SelectedIndex = -1;
+            cmbPosition.SelectedIndex = -1;
         }
         SalaryPropertiesDTO properties = new SalaryPropertiesDTO();
         private void FrmSalaryList_Load(object sender, EventArgs e)
@@ -144,17 +145,13 @@ namespace OwnTracking
             if (txtSalary.Text.Trim() != "")
             {
                 if (rbMore.Checked)
-                {
                     list = list.Where(x => x.SalaryAmount > Convert.ToInt32(txtSalary.Text)).ToList();
-                }
                 else if (rbLess.Checked)
-                {
+
                     list = list.Where(x => x.SalaryAmount < Convert.ToInt32(txtSalary.Text)).ToList();
-                }
                 else
-                {
+
                     list = list.Where(x => x.SalaryAmount == Convert.ToInt32(txtSalary.Text)).ToList();
-                }
 
             }
             //now we have to give this list to the data grid
@@ -198,9 +195,9 @@ namespace OwnTracking
             properties.SalaryID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value);
             properties.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             properties.SalaryYear = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[9].Value);
-            properties.MonthID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[10].Value);
+            properties.MonthID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[10].Value);    
+            properties.SalaryAmount = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
             properties.OldSalaryForUpdate = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
-            properties.SalaryAmount = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value); 
 
         }
 
