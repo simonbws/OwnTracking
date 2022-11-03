@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.btnPosition = new System.Windows.Forms.Button();
             this.btnDepartment = new System.Windows.Forms.Button();
             this.btnPermission = new System.Windows.Forms.Button();
@@ -41,11 +42,11 @@
             // btnPosition
             // 
             this.btnPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPosition.Image = global::OwnTracking.Properties.Resources.position;
+            this.btnPosition.Image = ((System.Drawing.Image)(resources.GetObject("btnPosition.Image")));
             this.btnPosition.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPosition.Location = new System.Drawing.Point(503, 297);
+            this.btnPosition.Location = new System.Drawing.Point(612, 455);
             this.btnPosition.Name = "btnPosition";
-            this.btnPosition.Size = new System.Drawing.Size(232, 216);
+            this.btnPosition.Size = new System.Drawing.Size(260, 207);
             this.btnPosition.TabIndex = 4;
             this.btnPosition.Text = "Position";
             this.btnPosition.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -55,11 +56,11 @@
             // btnDepartment
             // 
             this.btnDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDepartment.Image = global::OwnTracking.Properties.Resources.organization2;
+            this.btnDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnDepartment.Image")));
             this.btnDepartment.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDepartment.Location = new System.Drawing.Point(94, 223);
+            this.btnDepartment.Location = new System.Drawing.Point(315, 29);
             this.btnDepartment.Name = "btnDepartment";
-            this.btnDepartment.Size = new System.Drawing.Size(229, 290);
+            this.btnDepartment.Size = new System.Drawing.Size(255, 376);
             this.btnDepartment.TabIndex = 3;
             this.btnDepartment.Text = "Department";
             this.btnDepartment.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -71,9 +72,9 @@
             this.btnPermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPermission.Image = global::OwnTracking.Properties.Resources.permission;
             this.btnPermission.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPermission.Location = new System.Drawing.Point(941, 297);
+            this.btnPermission.Location = new System.Drawing.Point(922, 29);
             this.btnPermission.Name = "btnPermission";
-            this.btnPermission.Size = new System.Drawing.Size(240, 216);
+            this.btnPermission.Size = new System.Drawing.Size(259, 376);
             this.btnPermission.TabIndex = 5;
             this.btnPermission.Text = "Permission";
             this.btnPermission.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -83,52 +84,53 @@
             // btnSalary
             // 
             this.btnSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSalary.Image = global::OwnTracking.Properties.Resources.givemoney;
-            this.btnSalary.Location = new System.Drawing.Point(934, 3);
+            this.btnSalary.Image = ((System.Drawing.Image)(resources.GetObject("btnSalary.Image")));
+            this.btnSalary.Location = new System.Drawing.Point(612, 29);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(247, 242);
+            this.btnSalary.Size = new System.Drawing.Size(260, 376);
             this.btnSalary.TabIndex = 2;
             this.btnSalary.Text = "Salary";
+            this.btnSalary.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSalary.UseVisualStyleBackColor = true;
             this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
             // btnTask
             // 
             this.btnTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnTask.Image = global::OwnTracking.Properties.Resources.homeoffice1;
-            this.btnTask.Location = new System.Drawing.Point(503, 3);
+            this.btnTask.Image = ((System.Drawing.Image)(resources.GetObject("btnTask.Image")));
+            this.btnTask.Location = new System.Drawing.Point(315, 455);
             this.btnTask.Name = "btnTask";
-            this.btnTask.Size = new System.Drawing.Size(232, 242);
+            this.btnTask.Size = new System.Drawing.Size(255, 207);
             this.btnTask.TabIndex = 1;
             this.btnTask.Text = "Tasks";
-            this.btnTask.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTask.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnTask.UseVisualStyleBackColor = true;
             this.btnTask.Click += new System.EventHandler(this.btnTask_Click);
             // 
             // btnEmployee
             // 
             this.btnEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnEmployee.Image = global::OwnTracking.Properties.Resources.mngmt;
+            this.btnEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployee.Image")));
             this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEmployee.Location = new System.Drawing.Point(94, 3);
+            this.btnEmployee.Location = new System.Drawing.Point(24, 29);
             this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(229, 214);
+            this.btnEmployee.Size = new System.Drawing.Size(243, 376);
             this.btnEmployee.TabIndex = 0;
             this.btnEmployee.Text = "Employee";
-            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEmployee.UseVisualStyleBackColor = true;
             this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnLogOut
             // 
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnLogOut.Image = global::OwnTracking.Properties.Resources.logout;
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnLogOut.Location = new System.Drawing.Point(94, 519);
+            this.btnLogOut.Location = new System.Drawing.Point(24, 485);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(230, 227);
+            this.btnLogOut.Size = new System.Drawing.Size(131, 174);
             this.btnLogOut.TabIndex = 6;
-            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.Text = "Logout";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
@@ -136,11 +138,11 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnExit.Image = global::OwnTracking.Properties.Resources.exit;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExit.Location = new System.Drawing.Point(941, 519);
+            this.btnExit.Location = new System.Drawing.Point(1046, 485);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(240, 228);
+            this.btnExit.Size = new System.Drawing.Size(135, 174);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;

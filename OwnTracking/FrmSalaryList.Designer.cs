@@ -38,9 +38,7 @@
             this.rbMore = new System.Windows.Forms.RadioButton();
             this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSalary = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlForAdmin = new System.Windows.Forms.Panel();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
@@ -59,6 +57,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,14 +79,14 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtYear);
+            this.panel3.Controls.Add(this.txtSalary);
             this.panel3.Controls.Add(this.btnClear);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.cmbMonth);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.txtYear);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.txtSalary);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(373, 0);
@@ -165,7 +165,7 @@
             // 
             this.cmbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(173, 99);
+            this.cmbMonth.Location = new System.Drawing.Point(119, 95);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(148, 33);
             this.cmbMonth.TabIndex = 2;
@@ -174,20 +174,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(20, 99);
+            this.label8.Location = new System.Drawing.Point(20, 100);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 25);
             this.label8.TabIndex = 32;
             this.label8.Text = "Month";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtYear.Location = new System.Drawing.Point(173, 61);
-            this.txtYear.Multiline = true;
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(148, 22);
-            this.txtYear.TabIndex = 1;
             // 
             // label2
             // 
@@ -198,15 +189,6 @@
             this.label2.Size = new System.Drawing.Size(57, 25);
             this.label2.TabIndex = 31;
             this.label2.Text = "Year";
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtSalary.Location = new System.Drawing.Point(173, 23);
-            this.txtSalary.Multiline = true;
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(148, 22);
-            this.txtSalary.TabIndex = 0;
             // 
             // label1
             // 
@@ -400,6 +382,24 @@
             this.txtName.Size = new System.Drawing.Size(153, 31);
             this.txtName.TabIndex = 27;
             // 
+            // txtSalary
+            // 
+            this.txtSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtSalary.Location = new System.Drawing.Point(119, 17);
+            this.txtSalary.Multiline = true;
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(148, 31);
+            this.txtSalary.TabIndex = 34;
+            // 
+            // txtYear
+            // 
+            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtYear.Location = new System.Drawing.Point(119, 58);
+            this.txtYear.Multiline = true;
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(148, 31);
+            this.txtYear.TabIndex = 35;
+            // 
             // FrmSalaryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -451,12 +451,12 @@
         private System.Windows.Forms.RadioButton rbMore;
         private System.Windows.Forms.ComboBox cmbMonth;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSalary;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtYear;
+        private System.Windows.Forms.TextBox txtSalary;
     }
 }
