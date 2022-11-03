@@ -76,6 +76,14 @@ namespace OwnTracking
                 imgpth = Application.StartupPath + "\\images\\" + properties.ImagePath;
                 txtImagePath.Text = imgpth;
                 pictureBox1.ImageLocation = imgpth;
+                if (!UserStaticClass.isAdmin)
+                {
+                    chAdmin.Enabled = false;
+                    txtUserNo.Enabled = false;
+                    txtSalary.Enabled = false;
+                    cmbDepartment.Enabled = false;
+                    cmbPosition.Enabled = false;
+                }
             }
         }
         bool comfobull = false;

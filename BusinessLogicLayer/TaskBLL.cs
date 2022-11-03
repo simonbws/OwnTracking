@@ -13,6 +13,11 @@ namespace BusinessLogicLayer
 {
     public class TaskBLL
     {
+        public static void AcceptTask(int taskID, bool isAdmin)
+        {
+            TaskDAO.AcceptTask(taskID, isAdmin);
+        }
+
         public static void AddTask(TASK task)
         {
             TaskDAO.AddTask(task);

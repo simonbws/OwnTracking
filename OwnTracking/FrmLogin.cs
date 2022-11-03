@@ -47,7 +47,7 @@ namespace OwnTracking
                     //we need to fill properties from static class with list
                     UserStaticClass.EmployeeID = employee.ID;
                     UserStaticClass.UserNumber = employee.UserNumber;
-                    UserStaticClass.isAdmin = employee.isAdmin;
+                    UserStaticClass.isAdmin = Convert.ToBoolean(employee.isAdmin);
                     //we redirect program to main form
                     FrmMain frmMain = new FrmMain();
                     frmMain.Hide();

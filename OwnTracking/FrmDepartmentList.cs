@@ -72,6 +72,18 @@ namespace OwnTracking
             properties.DepartmentName = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Do you want to delete a department?", "Warning", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                DepartmentBLL.DeleteDepartment(properties.ID);
+                MessageBox.Show("Department has been removed");
+                lists = DepartmentBLL.GetDepartments();
+                dataGridView1.DataSource = lists;
+            }
+        }
     }
 }
  

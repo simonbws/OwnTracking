@@ -9,6 +9,28 @@ namespace DataAccessLayer.DAO
 {
     public class TaskDAO : EmployeeContext
     {
+        public static void AcceptTask(int taskID, bool isAdmin)
+        {
+            try
+            {
+                TASK t = db.TASKs.First(x => x.ID == taskID);
+                if (isAdmin)
+                {
+                    t.TaskState = TaskStatesStatic.Accepted;
+                }
+                else
+                {
+                    t.TaskState = TaskStatesStatic.Delivered;
+                    t.TaskDeliveryDate = DateTime.Today;
+                    db.SubmitChanges();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static void AddTask(TASK task)
         {
             try
@@ -26,7 +48,7 @@ namespace DataAccessLayer.DAO
         {
             try
             {
-                TASK t = db.TASKs.First(x=>x.ID == taskID);
+                TASK t = db.TASKs.First(x => x.ID == taskID);
                 db.TASKs.DeleteOnSubmit(t);
                 db.SubmitChanges();
             }
@@ -76,7 +98,7 @@ namespace DataAccessLayer.DAO
                 dto.taskStateID = item.taskStateID;
                 dto.UserNumber = item.UserNumber;
                 dto.Name = item.Name;
-                dto.Surname=item.Surname;
+                dto.Surname = item.Surname;
                 dto.DepartmentName = item.departmentName;
                 dto.PositionID = item.positionID;
                 dto.PositionName = item.positionName;
@@ -95,7 +117,7 @@ namespace DataAccessLayer.DAO
         {
             try
             {
-                TASK t = db.TASKs.First(x=>x.ID == task.ID);
+                TASK t = db.TASKs.First(x => x.ID == task.ID);
                 t.TaskTitle = task.TaskTitle;
                 t.TaskContent = task.TaskContent;
                 t.TaskState = task.TaskState;

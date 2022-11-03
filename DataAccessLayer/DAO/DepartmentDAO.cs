@@ -21,6 +21,21 @@ namespace DataAccessLayer.DAO
             }
         }
 
+        public static void DeleteDepartment(int iD)
+        {
+            try
+            {
+                DEPARTMENT d = db.DEPARTMENTs.First(x => x.ID == iD);
+                db.DEPARTMENTs.DeleteOnSubmit(d);
+                db.SubmitChanges();
+                //now we are making a trigger
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static List<DEPARTMENT> GetDepartments()
         {
             return db.DEPARTMENTs.ToList();

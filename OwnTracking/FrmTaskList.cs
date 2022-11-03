@@ -36,6 +36,10 @@ namespace OwnTracking
         void FillFieldByAllData()
         {
             dto = TaskBLL.GetAll();
+            if (!UserStaticClass.isAdmin)
+            {
+                dto.Tasks = dto.Tasks.Where(x => x.EmployeeID == UserStaticClass.EmployeeID).ToList();
+            }
             dataGridView1.DataSource = dto.Tasks;
             comfobull = false;
             cmbDepartment.DataSource = dto.Departments;
@@ -72,6 +76,15 @@ namespace OwnTracking
             dataGridView1.Columns[12].Visible = false;
             dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[14].Visible = false;
+            if (!UserStaticClass.isAdmin)
+            {
+                btnAdd.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+                pnlForAdmin.Hide();
+                btnAccept.Text = "Delivery";
+                
+            }
             
             
 
@@ -211,6 +224,35 @@ namespace OwnTracking
                 FillFieldByAllData();
                 CleanFilters();
             }
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (UserStaticClass.isAdmin && properties.taskStateID == TaskStatesStatic.OnEmployee
+                && properties.EmployeeID != UserStaticClass.EmployeeID)
+            {
+                MessageBox.Show("Before accept a task, employee needs to finish task");
+            }
+            else if (UserStaticClass.isAdmin && properties.taskStateID == TaskStatesStatic.Accepted)
+            {
+                MessageBox.Show("This task has been already accepted");
+            }
+            else if (!UserStaticClass.isAdmin && properties.taskStateID == TaskStatesStatic.Delivered)
+            {
+                MessageBox.Show("This has has been already delivered");
+            }
+            else if (!UserStaticClass.isAdmin && properties.taskStateID == TaskStatesStatic.Accepted)
+            {
+                MessageBox.Show("This task has been already accepted");
+            }
+            else
+            {
+                TaskBLL.AcceptTask(properties.TaskID, UserStaticClass.isAdmin);
+                MessageBox.Show("Task has been updated");
+                FillFieldByAllData();
+                CleanFilters();
+            }
+
         }
     }
 }
