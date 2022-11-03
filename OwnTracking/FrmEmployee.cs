@@ -181,7 +181,7 @@ namespace OwnTracking
                 else
                 {
                     DialogResult res = MessageBox.Show("Do you want to update?", "Warning", MessageBoxButtons.YesNo);
-                    if (DialogResult == DialogResult.Yes)
+                    if (res == DialogResult.Yes)
                     {
                         EMPLOYEE employee = new EMPLOYEE();
                         if (txtImagePath.Text != imgpth)

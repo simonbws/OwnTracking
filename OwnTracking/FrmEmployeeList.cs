@@ -141,9 +141,8 @@ namespace OwnTracking
                 list = list.Where(x => x.DepartmentID == Convert.ToInt32(cmbDepartment.SelectedValue)).ToList();
             }
             if (cmbPosition.SelectedIndex == -1)
-            {
-                list = list.Where(x => x.PositionID == Convert.ToInt32(cmbPosition.SelectedValue)).ToList();
-            }
+            
+                list = list.Where(x => x.PositionID == Convert.ToInt32(cmbPosition.SelectedValue)).ToList();  
             //now we have to give this list to the data grid
             dataGridView1.DataSource = list;
         }
