@@ -58,11 +58,7 @@ namespace OwnTracking
         private bool comfobull;
         void SelectAllData()
         {
-            dto = SalaryBLL.GetAll();
-            if (!UserStaticClass.isAdmin)
-            {
-                dto.Salaries = dto.Salaries.Where(x => x.EmployeeID == UserStaticClass.EmployeeID).ToList();
-            }
+            dto = SalaryBLL.GetAll(); 
             //now we can take all salary, lets show these list in necessery area
             dataGridView1.DataSource = dto.Salaries;
             comfobull = false;
@@ -101,14 +97,7 @@ namespace OwnTracking
             dataGridView1.Columns[11].HeaderText = "Salary";
             dataGridView1.Columns[10].Visible = false;
             dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
-            if (!UserStaticClass.isAdmin)
-            {
-                btnUpdate.Hide();
-                btnDelete.Hide();
-                pnlForAdmin.Hide();
-            }
-            
+            dataGridView1.Columns[13].Visible = false;         
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)

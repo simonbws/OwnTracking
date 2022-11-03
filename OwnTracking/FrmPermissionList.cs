@@ -52,9 +52,7 @@ namespace OwnTracking
             {
                 MessageBox.Show("Please choose a permission from table");
 
-            }
-            else if (properties.State == PermissionAdminStateStatic.Accepted || properties.State ==
-                PermissionAdminStateStatic.Unaccepted) ;
+            }    
             else
             {
                 FrmPermission frm = new FrmPermission();
@@ -72,11 +70,7 @@ namespace OwnTracking
         private bool comfobull;
         void SelectAllData()
         {
-            dto = PermissionBLL.GetAll();
-            if (!UserStaticClass.isAdmin)
-            {
-                dto.Permissions = dto.Permissions.Where(x => x.EmployeeID == UserStaticClass.EmployeeID).ToList();
-            }
+            dto = PermissionBLL.GetAll();    
             //lets show list
             dataGridView1.DataSource = dto.Permissions;
             comfobull = false;
@@ -114,15 +108,6 @@ namespace OwnTracking
             dataGridView1.Columns[11].HeaderText = "State";
             dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[14].Visible = false;
-            if (!UserStaticClass.isAdmin)
-            {
-                pnlForAdmin.Visible = false;
-                btnAccept.Hide();
-                btnUnAccept.Hide();
-                btnDelete.Hide();
-
-            }
-
             
         }
 

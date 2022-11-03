@@ -9,27 +9,8 @@ namespace DataAccessLayer.DAO
 {
     public class TaskDAO : EmployeeContext
     {
-        public static void AcceptTask(int taskID, bool isAdmin)
-        {
-            try
-            {
-                TASK t = db.TASKs.First(x => x.ID == taskID);
-                if (isAdmin)
-                {
-                    t.TaskState = TaskStatesStatic.Accepted;
-                }
-                else
-                {
-                    t.TaskState = TaskStatesStatic.Delivered;
-                    t.TaskDeliveryDate = DateTime.Today;
-                    db.SubmitChanges();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        
+        
 
         public static void AddTask(TASK task)
         {
