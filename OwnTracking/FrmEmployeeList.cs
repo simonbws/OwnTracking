@@ -150,6 +150,7 @@ namespace OwnTracking
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            //here we are setting values to dto
             properties.Name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             properties.Surname = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             properties.Password = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
@@ -163,6 +164,24 @@ namespace OwnTracking
             properties.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             properties.Salary = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
             
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Do you want to delete an employee?", "Warning", MessageBoxButtons.YesNo); 
+            if (res == DialogResult.Yes)
+            {
+                EmployeeBLL.DeleteEmployee(properties.EmployeeID);
+                MessageBox.Show("Employee has been removed");
+                SelectAllData();
+                ClearAllFilters();
+            }
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

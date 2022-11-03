@@ -23,6 +23,32 @@ namespace DataAccessLayer.DAO
             }
         }
 
+        public static void DeleteEmployee(int employeeID)
+        {
+            try
+            {
+                EMPLOYEE e = db.EMPLOYEEs.First(x => x.ID == employeeID);
+                db.EMPLOYEEs.DeleteOnSubmit(e);
+                db.SubmitChanges();
+                ////each employee has a task so we have to remove it from a list and also another properties like salary
+                //List<TASK> tasks = db.TASKs.Where(x => x.EmployeeID == employeeID).ToList();
+                //db.TASKs.DeleteAllOnSubmit(tasks);
+                //db.SubmitChanges();
+
+                //List<SALARY2> salary = db.SALARY2s.Where(x => x.ID == employeeID).ToList();
+                //db.SALARY2s.DeleteAllOnSubmit(salary);
+                //db.SubmitChanges();
+
+                //List<PERMISSION> permissions = db.PERMISSIONs.Where(x => x.ID == employeeID).ToList();
+                //db.PERMISSIONs.DeleteAllOnSubmit(permissions);
+                //db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static List<EmployeePropertiesDTO> GetEmployees()
         {
             //we have to return 3 tables for all necessary info

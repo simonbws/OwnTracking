@@ -23,6 +23,22 @@ namespace DataAccessLayer.DAO
             }
         }
 
+        public static void DeletePosition(int iD)
+        {
+            try
+            {
+                POSITION position = db.POSITIONs.First(x => x.ID == iD);
+                db.POSITIONs.DeleteOnSubmit(position);
+                db.SubmitChanges();
+                //if we delete any position, that means, we have to delete all properties related to this employee
+                //so we need to make a trigger
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static List<PositionDTO> GetPositions()
         {
             try

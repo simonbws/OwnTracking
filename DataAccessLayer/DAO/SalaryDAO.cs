@@ -24,6 +24,20 @@ namespace DataAccessLayer.DAO
             }
         }
 
+        public static void DeleteSalary(int salaryID)
+        {
+            try
+            {
+                SALARY2 s = db.SALARY2s.First(x => x.ID == salaryID);
+                db.SALARY2s.DeleteOnSubmit(s);
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static List<MONTH> GetMonths()
         {
             return db.MONTHs.ToList();

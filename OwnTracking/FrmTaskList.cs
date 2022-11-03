@@ -203,7 +203,7 @@ namespace OwnTracking
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("DO you want to delete this task?", "Warning", MessageBoxButtons.YesNo);
+            DialogResult res = MessageBox.Show("Do you want to delete this task?", "Warning", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
                 TaskBLL.DeleteTask(properties.TaskID);

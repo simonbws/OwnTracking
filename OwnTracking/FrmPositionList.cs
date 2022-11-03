@@ -26,6 +26,14 @@ namespace OwnTracking
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DialogResult res = MessageBox.Show("Do you want to delete a position?", "Warning", MessageBoxButtons.YesNo);
+            if (DialogResult.Yes == res)
+            {
+                PositionBusinessLL.DeletePosition(properties.ID);
+                MessageBox.Show("Position has been deleted");
+                FillGrid();
+                
+            }
 
         }
 

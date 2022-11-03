@@ -204,5 +204,17 @@ namespace OwnTracking
             properties.SalaryAmount = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value); 
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Do you want to delete a salary?", "Warning", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                SalaryBLL.DeleteSalary(properties.SalaryID);
+                MessageBox.Show("Salary has been removed");
+                SelectAllData();
+                CleanButtonFilter();
+            }
+        }
     }
 }
